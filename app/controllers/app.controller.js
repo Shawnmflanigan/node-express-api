@@ -1,4 +1,5 @@
 const App = require("../model/app.model.js");
+const Doctor = require("../model/app.doctors");
 
 // Create and Save a new Message
 exports.create = (req, res) => {
@@ -22,7 +23,7 @@ exports.create = (req, res) => {
 
 // Retrieve all messages from the database.
 exports.findAll = (req, res) => {
-  App.find()
+  Doctor.find()
     .then((data) => {
       res.send(data);
     })

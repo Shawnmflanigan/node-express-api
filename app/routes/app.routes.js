@@ -1,5 +1,6 @@
 module.exports = (app) => {
   const App = require("../controllers/app.controller");
+  const Doctor = require("../controllers/app.controller");
 
   app.post("/api/create", App.create);
 
