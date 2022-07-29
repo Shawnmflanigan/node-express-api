@@ -1,14 +1,16 @@
-const App = require("../models/app.model.js");
+const App = require("../model/app.model.js");
 
 // Create and Save a new Message
 exports.create = (req, res) => {
   const message = new App({
     message: req.body.message,
   });
+
   message
     .save()
     .then((data) => {
       res.send(data);
+      console.log("Message Created", data.message);
     })
     .catch((err) => {
       res.status(500).send({
