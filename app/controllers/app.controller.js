@@ -14,6 +14,7 @@ exports.findAll = (req, res) => {
 };
 
 // Get list of all appointments by doctor by id
+// TODO: add endpoint for day --This can also be done on the front end
 
 exports.findOne = (req, res) => {
   Doctor.findById(req.params.doctorId)
@@ -63,9 +64,9 @@ exports.delete = (req, res) => {
     });
 };
 
-//add a new appointment
-//no more than 3 in same time
-//15 minute increments
+//add a new appointment by doctor id
+//TODO: no more than 3 in same time slot per doctor
+//TODO: 15 minute increments
 
 exports.create = (req, res) => {
   Doctor.findByIdAndUpdate(req.params.doctorId, {
