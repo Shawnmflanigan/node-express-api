@@ -3,11 +3,9 @@ module.exports = (app) => {
 
   app.get("/api/get-all", App.findAll);
 
-  app.post("/api/appointment/create", App.create);
+  app.post("/api/doctor/:doctorId", App.create);
 
   app.get("/api/doctor/:doctorId", App.findOne);
-
-  // app.put("/api/message/:messageId", App.update);
 
   app.delete("/api/appointment/:appointmentId", App.delete);
 };

@@ -1,1 +1,2 @@
-A template for node-express api using MongoDB
+A backend infrastructure using Node/express/mongoDB.
+
