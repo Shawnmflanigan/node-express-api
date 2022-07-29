@@ -47,7 +47,7 @@ describe("Messages", () => {
     });
   });
 
-  describe("GET message by ID", () => {
+  describe("GET /message", () => {
     it("should retrieve a message by id", (done) => {
       let message = {
         message: "Curse of the Gazebo",
@@ -66,7 +66,7 @@ describe("Messages", () => {
     });
   });
 
-  describe("DELETE message by ID", () => {
+  describe("DELETE /message", () => {
     it("should delete a message by id", (done) => {
       let message = {
         message: "Space Mountain is the GOAT",
