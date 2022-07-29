@@ -28,19 +28,15 @@ const doctorSeed = [
       {
         patientFirst: "Pam",
         patientLast: "Pammy",
-        dateTime: {
-          date: "08 / 05 / 2022",
-          time: "8:15AM",
-        },
+        date: "08 / 05 / 2022",
+        time: "8:15AM",
         kind: "New Patient",
       },
       {
         patientFirst: "Flim",
         patientLast: "Flammmy",
-        dateTime: {
-          date: "08 / 05 / 2022",
-          time: "8:15AM",
-        },
+        date: "08 / 05 /2022",
+        time: "8:15AM",
         kind: "New Patient",
       },
     ],
@@ -52,10 +48,8 @@ const doctorSeed = [
       {
         patientFirst: "Tam",
         patientLast: "Tammy",
-        dateTime: {
-          date: "08 / 06 / 2022",
-          time: "8:15AM",
-        },
+        date: 08 / 06 / 2022,
+        time: "8:15AM",
         kind: "Follow-Up",
       },
     ],

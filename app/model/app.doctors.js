@@ -7,10 +7,8 @@ const DoctorSchema = mongoose.Schema({
     {
       patientFirst: String,
       patientLast: String,
-      dateTime: {
-        time: String,
-        date: String,
-      },
+      time: String,
+      date: String,
       kind: String,
     },
   ],
