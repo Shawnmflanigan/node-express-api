@@ -46,4 +46,44 @@ describe("Messages", () => {
         });
     });
   });
+
+  describe("GET message by ID", () => {
+    it("should retrieve a message by id", (done) => {
+      let message = {
+        message: "Curse of the Gazebo",
+      };
+      request(app)
+        .post("/create")
+        .send(message)
+        .end((req, res) => {
+          request(app)
+            .get(`/message/${res._body._id}`)
+            .end((err, res) => {
+              expect(res._body.message).to.equal("Curse of the Gazebo");
+              done();
+            });
+        });
+    });
+  });
+
+  describe("DELETE message by ID", () => {
+    it("should delete a message by id", (done) => {
+      let message = {
+        message: "Space Mountain is the GOAT",
+      };
+      request(app)
+        .post("/create")
+        .send(message)
+        .end((req, res) => {
+          request(app)
+            .delete(`/message/${res._body._id}`)
+            .end((err, res) => {
+              expect(res._body.message).to.equal(
+                "Message deleted successfully!"
+              );
+              done();
+            });
+        });
+    });
+  });
 });
