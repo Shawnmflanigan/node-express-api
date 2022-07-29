@@ -3,7 +3,7 @@ module.exports = (app) => {
 
   app.get("/api/get-all", App.findAll);
 
-  app.post("/api/create", App.create);
+  app.post("/api/appointment/create", App.create);
 
   app.get("/api/doctor/:doctorId", App.findOne);
 

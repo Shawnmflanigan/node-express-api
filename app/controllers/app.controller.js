@@ -1,4 +1,3 @@
-const App = require("../model/app.model.js");
 const Doctor = require("../model/app.doctors");
 
 // Retrieve all data from the database.
@@ -14,7 +13,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Get list of all appointments by doctor by day
+// Get list of all appointments by doctor by id
 
 exports.findOne = (req, res) => {
   Doctor.findById(req.params.doctorId)
@@ -39,10 +38,11 @@ exports.findOne = (req, res) => {
 };
 
 // Delete an existing appointment
-//TODO change this so we're not deleting patients.
+
 exports.delete = (req, res) => {
-  App.remove({ _id: req.params.appointmentId })
+  Doctor.deleteOne({ apointments: { _id: req.params.appointmentId } })
     .then((data) => {
+      console.log(data);
       if (!data) {
         return res.status(404).send({
           message: "Appointment not found with id " + req.params.appointmentId,
