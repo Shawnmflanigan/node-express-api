@@ -1,13 +1,13 @@
 module.exports = (app) => {
   const App = require("../controllers/app.controller");
 
-  app.post("/create", App.create);
+  app.post("/api/create", App.create);
 
-  app.get("/get-all", App.findAll);
+  app.get("/api/get-all", App.findAll);
 
-  app.get("/message/:messageId", App.findOne);
+  app.get("/api/message/:messageId", App.findOne);
 
-  app.put("/message/:messageId", App.update);
+  app.put("/api/message/:messageId", App.update);
 
-  app.delete("/message/:messageId", App.delete);
+  app.delete("/api/message/:messageId", App.delete);
 };

@@ -20,7 +20,7 @@ describe("Messages", () => {
   describe("GET /get-all", function () {
     it("returns an empty array", function (done) {
       request(app)
-        .get("/get-all")
+        .get("/api/get-all")
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a("array");
@@ -33,15 +33,15 @@ describe("Messages", () => {
   describe("POST /create", () => {
     it("should create a new message", (done) => {
       let message = {
-        message: "Cowtown is the best",
+        message: "Cowtown",
       };
       request(app)
-        .post("/create")
+        .post("/api/create")
         .send(message)
         .end((err, res) => {
           res.should.have.status(200);
           res.body.should.be.a("object");
-          expect(res.body.message).to.equal("Cowtown is the best");
+          expect(res.body.message).to.equal("Cowtown");
           done();
         });
     });
@@ -53,11 +53,11 @@ describe("Messages", () => {
         message: "Curse of the Gazebo",
       };
       request(app)
-        .post("/create")
+        .post("/api/create")
         .send(message)
         .end((req, res) => {
           request(app)
-            .get(`/message/${res._body._id}`)
+            .get(`/api/message/${res._body._id}`)
             .end((err, res) => {
               expect(res._body.message).to.equal("Curse of the Gazebo");
               done();
@@ -72,11 +72,11 @@ describe("Messages", () => {
         message: "Space Mountain is the GOAT",
       };
       request(app)
-        .post("/create")
+        .post("/api/create")
         .send(message)
         .end((req, res) => {
           request(app)
-            .delete(`/message/${res._body._id}`)
+            .delete(`/api/message/${res._body._id}`)
             .end((err, res) => {
               expect(res._body.message).to.equal(
                 "Message deleted successfully!"
