@@ -1,8 +1,10 @@
+const dayjs = require("dayjs");
 const mongoose = require("mongoose");
 const Doctor = require("../model/app.doctors");
-const uuId = require("uuid");
 
-require("dotenv").config;
+require("dotenv").config();
+
+console.log(process.env.MONGODB_URI);
 
 mongoose.Promise = global.Promise;
 mongoose
@@ -20,17 +22,52 @@ mongoose
 
 const doctorSeed = [
   {
-    id: uuId,
     firstName: "Sam",
     lastName: "Sammy",
+    appointments: [
+      {
+        patientFirst: "Pam",
+        patientLast: "Pammy",
+        dateTime: {
+          date: "08 / 05 / 2022",
+          time: "8:15AM",
+        },
+        kind: "New Patient",
+      },
+      {
+        patientFirst: "Flim",
+        patientLast: "Flammmy",
+        dateTime: {
+          date: "08 / 05 / 2022",
+          time: "8:15AM",
+        },
+        kind: "New Patient",
+      },
+    ],
+  },
+  {
+    firstName: "Jam",
+    lastName: "Jammy",
+    appointments: [
+      {
+        patientFirst: "Tam",
+        patientLast: "Tammy",
+        dateTime: {
+          date: "08 / 06 / 2022",
+          time: "8:15AM",
+        },
+        kind: "Follow-Up",
+      },
+    ],
   },
 ];
 
 Doctor.deleteMany({})
   .remove({})
-  .then(() => Doctor.collection.insertMany(doctorSeed))
+  .then(() => Doctor.insertMany(doctorSeed))
   .then((data) => {
-    console.log(data.result.n + " records inserted!");
+    console.log(data);
+    console.log(data.result + " records inserted!");
     process.exit(0);
   })
   .catch((err) => {
